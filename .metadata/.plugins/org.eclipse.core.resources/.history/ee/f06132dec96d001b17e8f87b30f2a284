@@ -1,0 +1,99 @@
+package com.cg.healthify.pojo;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+public class Exercise {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@NotBlank(message = "Exercise Identifier should not be blank")
+	@Size(min=3, max=5, message = "Please use 3 to 5 charecters")
+	@Column(updatable = false, unique = true)
+	private String exIdentifier;
+	@NotBlank
+	private String exType;
+	@NotBlank
+	private int exSets;
+	@NotBlank
+	private int exReps;
+	@NotBlank
+	private String exPlan;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date created_At;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date updated_At;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getExIdentifier() {
+		return exIdentifier;
+	}
+	public void setExIdentifier(String exIdentifier) {
+		this.exIdentifier = exIdentifier;
+	}
+	public String getExType() {
+		return exType;
+	}
+	public void setExType(String exType) {
+		this.exType = exType;
+	}
+	public int getExSets() {
+		return exSets;
+	}
+	public void setExSets(int exSets) {
+		this.exSets = exSets;
+	}
+	public int getExReps() {
+		return exReps;
+	}
+	public void setExReps(int exReps) {
+		this.exReps = exReps;
+	}
+	public String getExPlan() {
+		return exPlan;
+	}
+	public void setExPlan(String exPlan) {
+		this.exPlan = exPlan;
+	}
+	public Date getCreated_At() {
+		return created_At;
+	}
+	public void setCreated_At(Date created_At) {
+		this.created_At = created_At;
+	}
+	public Date getUpdated_At() {
+		return updated_At;
+	}
+	public void setUpdated_At(Date updated_At) {
+		this.updated_At = updated_At;
+	}
+	
+	@PrePersist
+	public void onCreate() {
+		this.created_At = new Date();
+	}
+	
+	@PreUpdate
+	public void onUpdate() {
+		this.created_At = new Date();
+	}
+
+}

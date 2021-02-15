@@ -1,0 +1,7 @@
+package com.cg.healthify.repository;
+
+public interface ProjectRepository {
+	
+	
+
+}

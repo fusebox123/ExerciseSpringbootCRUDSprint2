@@ -1,0 +1,5 @@
+package com.cg.healthify.exception;
+
+public class CustomRseponseEntityHandler {
+
+}

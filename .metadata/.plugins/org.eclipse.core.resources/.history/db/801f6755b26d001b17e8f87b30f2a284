@@ -1,0 +1,5 @@
+package com.cg.healthify.pojo;
+
+public class Exercise {
+
+}

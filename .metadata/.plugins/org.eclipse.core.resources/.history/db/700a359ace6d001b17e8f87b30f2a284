@@ -1,0 +1,18 @@
+package com.cg.healthify.exception;
+
+public class ExerciseIdException extends RuntimeException{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public ExerciseIdException() {
+		super();
+	}
+	
+	public ExerciseIdException(String errMsg) {
+		super(errMsg);
+	}
+
+}

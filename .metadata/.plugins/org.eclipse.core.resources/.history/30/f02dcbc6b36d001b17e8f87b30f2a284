@@ -1,0 +1,11 @@
+package com.cg.healthify.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.cg.healthify.pojo.Exercise;
+
+public interface ProjectRepository extends CrudRepository<Exercise, Integer>{
+	
+	
+
+}
